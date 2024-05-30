@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="photo/logo11.png">
+	<!-- icons -->
+	<script src="https://kit.fontawesome.com/62a2566edd.js" crossorigin="anonymous"></script>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="admine.css">
+
+	<title>Dashboard</title>
+</head>
+<style>
+	#languageName,
+	#languageImage {
+		width: 200px;
+		padding: 8px;
+		margin-left: 2%;
+		border: 1px solid #000000;
+		border-radius: 5px;
+		box-sizing: border-box;
+		/* Ensure padding is included in the width */
+	}
+
+
+	button {
+		padding: 8px 16px;
+		border: none;
+		border-radius: 5px;
+		background-color: #1E1B6D;
+		color: #ffffff;
+		cursor: pointer;
+	}
+
+	button:hover {
+		background-color: #407BFF;
+	}
+
+	/* Add your CSS styles for the modal here */
+	.modal {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+
+	.modal-content {
+		background-color: #ffffff;
+		margin: 15% auto;
+		padding: 20px;
+		border: 1px solid #888888;
+		width: 30%;
+	}
+
+	.close {
+		color: #ff0707;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	/* Styles for form fields */
+	label {
+		display: block;
+		margin-bottom: 10px;
+		font-weight: bold;
+		color: #493EEB;
+	}
+
+	input[type="text"],
+	input[type="file"] {
+		width: 100%;
+		padding: 10px;
+
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		box-sizing: border-box;
+	}
+
+	input[type="submit"],
+	button[type="submit"] {
+		background-color: #493EEB;
+		color: #fff;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	input[type="submit"]:hover,
+	button[type="submit"]:hover {
+		background-color: #0056b3;
+	}
+
+	/* Additional styles for the form fields can be added here */
+</style>
+
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<img src="photo/logo11.png" alt="" style="margin-left: 5%;margin-top: 5%;">
+			<span class="text" style="margin-left: 3%;margin-top: 5%;">DashBoard</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="adminehome.html">
+					<i class="fas fa-home"></i>
+
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="admineatte.html">
+					<i class="fas fa-user"></i>
+					<span class="text">Student</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="adminelang.html" style="color: #407BFF; background-color:#1E1B6D;">
+					<i class="fas fa-solid fa-graduation-cap"></i>
+					<span class="text">Programs</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="adminesetti.html">
+					<i class="fas fa-light fa-sliders"></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+
+		</ul>
+		<ul class="side-menu">
+
+			<li>
+				<a href="#" class="logout">
+					<i class="fas fa-sign-out-alt"></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu'></i>
+
+			<form action="#">
+				<div class="form-input">
+					<input type="text" id="search-input" placeholder="Search...">
+					<button type="submit" class="search-btn" onclick="searchWithinPage()"><i
+							class="fa-solid fa-magnifying-glass"></i></button>
+				</div>
+				<div id="searchResults"></div>
+			</form>
+
+			<a href="#" class="profile">
+				<img src="img/people.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+
+			<section class="attendance">
+
+				<div id="Programs">
+
+					<div class="dropdown">
+						<button class="button">Menu</button>
+						<div class="content">
+							<a href="#" onclick="showLanguages()">all Language</a>
+							<a href="#" onclick="showActivity()">Activity</a>
+
+
+						</div>
+					</div>
+
+					<section id="languages" class="program-section">
+						<h2>Languages</h2>
+						<button class="open-modal" data-section="languages">Add Language</button>
+
+
+						<div id="languagesList">
+							<div class="langdiv">
+								<div><img src="frn.png" id="langimg" width="40" height="25" alt=""></div>
+								<span id="langname"><a id="co" href="">hey </a> </span>
+								<div><button class="delete-btn">X</button></div>
+							</div>
+							
+						</div>
+
+
+					</section>
+
+
+					<section id="Activity" class="program-section">
+						<h2>Activity</h2>
+						<button class="open-modal" data-section="activities">Add Activity</button>
+						<div id="ActivityList">
+							<div class="langdiv">
+								<div><img src="frn.png" id="langimg" width="40" height="25" alt=""></div>
+								<span id="langname"><a id="co" href="">hey </a> </span>
+								<div><button class="delete-btn">X</button></div>
+							</div>
+							
+						</div>
+					</section>
+
+
+
+					<div id="myModal" class="modal">
+						<div class="modal-content">
+							<span class="close">&times;</span>
+							<!-- Modal content -->
+							<form id="languageForm">
+								<!-- Your form fields go here -->
+								<label for="languageName">Language img :</label>
+								<input type="file" id="languageImage" name="languageImage" required>
+								<label for="languageName">Language Name:</label>
+								<input type="text" id="languageName" name="languageName" required>
+								<br><br>
+								<button type="submit">Submit</button>
+							</form>
+						</div>
+					</div>
+					<!-- Add this modal structure after the language modal -->
+					<div id="activityModal" class="modal">
+						<div class="modal-content">
+							<span class="close" id="activityClose">&times;</span>
+							<!-- Modal content -->
+							<form id="activityForm">
+								<!-- Your form fields for activity go here -->
+								<label for="activityName">Activity Name:</label>
+								<input type="text" id="activityName" name="activityName" required>
+								<br><br>
+								<button type="submit">Submit</button>
+							</form>
+						</div>
+					</div>
+
+
+
+				</div>
+
+
+
+
+
+
+			</section>
+
+
+
+
+			</div>
+			<script>
+
+				// Get the button that opens the modal
+				var openModalBtn = document.querySelector(".open-modal");
+
+				// Get the modal
+				var modal = document.getElementById("myModal");
+
+				// Get the <span> element that closes the modal
+				var closeBtn = modal.querySelector(".close");
+
+				// When the user clicks on the button, open the modal
+				openModalBtn.addEventListener("click", function () {
+					modal.style.display = "block";
+				});
+
+				// When the user clicks on <span> (x), close the modal
+				closeBtn.addEventListener("click", function () {
+					modal.style.display = "none";
+				});
+
+				// When the user clicks anywhere outside of the modal, close it
+				window.addEventListener("click", function (event) {
+					if (event.target === modal) {
+						modal.style.display = "none";
+					}
+				});
+
+				// Get the button that opens the activity modal
+				var openActivityModalBtn = document.querySelector("#Activity .open-modal");
+
+				// Get the activity modal
+				var activityModal = document.getElementById("activityModal");
+
+				// Get the <span> element that closes the activity modal
+				var activityCloseBtn = document.getElementById("activityClose");
+
+				// When the user clicks on the activity button, open the modal
+				openActivityModalBtn.addEventListener("click", function () {
+					activityModal.style.display = "block";
+				});
+
+				// When the user clicks on <span> (x), close the activity modal
+				activityCloseBtn.addEventListener("click", function () {
+					activityModal.style.display = "none";
+				});
+
+				// When the user clicks anywhere outside of the activity modal, close it
+				window.addEventListener("click", function (event) {
+					if (event.target === activityModal) {
+						activityModal.style.display = "none";
+					}
+				});
+
+				// Handle form submission for adding activity
+				document.getElementById("activityForm").addEventListener("submit", function (event) {
+					event.preventDefault(); // Prevent form submission
+					// Call a function to handle adding activity here
+					// For now, let's just close the modal
+					activityModal.style.display = "none";
+				});
+
+				// Add this line to the end of your JavaScript code
+				window.addEventListener("load", function () {
+					loadSavedLanguages(); // Load saved languages
+					showLanguages();
+				});
+
+				// Function to show the Languages section
+				function showLanguages() {
+					hideAllSections();
+					document.getElementById("languages").style.display = "block";
+
+				}
+
+
+				function showActivity() {
+					hideAllSections();
+					document.getElementById("Activity").style.display = "block";
+				}
+
+				// Function to hide all program sections
+				function hideAllSections() {
+					var sections = document.getElementsByClassName("program-section");
+					for (var i = 0; i < sections.length; i++) {
+						sections[i].style.display = "none";
+					}
+				}
+
+				// Function to handle form submission for adding languages
+				document.getElementById("addLanguageForm").addEventListener("submit", function (event) {
+					event.preventDefault(); // Prevent form submission
+					addLanguage();
+				});
+
+				// Function to add new language
+				function addLanguage() {
+					var languageName = document.getElementById("languageName").value;
+					var languageImage = document.getElementById("languageImage").files[0];
+
+					if (languageName.trim() === '') {
+						alert("Please enter a valid language name.");
+						return;
+					}
+
+					var formData = new FormData();
+					formData.append('name', languageName);
+					formData.append('image', languageImage);
+
+					fetch('http://localhost:3000/languages', {
+						method: 'POST',
+						body: formData
+					})
+						.then(response => {
+							if (!response.ok) {
+								throw new Error('Failed to add language');
+							}
+							return response.json();
+						})
+						.then(data => {
+							// Assuming the response contains the added language data
+
+							var addedLanguageName = data.name;
+							var addedLanguageImageSrc = data.imageSrc;
+
+							displayLanguage(addedLanguageName, addedLanguageImageSrc);
+						})
+						.catch(error => {
+							console.error('Error adding language:', error);
+						});
+
+					// Reset input fields
+					document.getElementById("languageName").value = '';
+					document.getElementById("languageImage").value = '';
+				}
+
+
+
+
+				// Function to load saved languages from localStorage on page load
+				function loadSavedLanguages() {
+					var languages = JSON.parse(localStorage.getItem("languages")) || [];
+					languages.forEach(function (language) {
+						displayLanguage(language.name, language.imageSrc, language.id);
+						addCourse(language.name); // Add the saved languages as courses on page load
+					});
+				}
+
+				function generateLanguageList() {
+					const languagesList = document.getElementById('languagesList');
+					const uniqueLanguages = [...new Set(data.map(course => course.name))];
+					uniqueLanguages.forEach(name => {
+						const listItem = document.createElement('div'); // Create a <div> for each language
+						const link = document.createElement('a');
+						const attributes = data.filter(course => course.name === name);
+						link.href = `userfile.html?name=${name}`; // Set the href attribute with the language name
+						link.textContent = name;
+						link.id = 'co'; // Add an id to the link for reference if needed
+						listItem.appendChild(link);
+						languagesList.appendChild(listItem);
+					});
+				}
+
+				generateLanguageList();
+
+			</script>
+
+		</main>
+
+	</section>
+
+
+
+
+</body>
+
+</html>
