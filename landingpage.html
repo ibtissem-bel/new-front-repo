@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME</title>
+  <link rel="icon" type="image/png" href="photo/logo11.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+  <link rel="stylesheet" href="landingpage.css">
+</head>
+
+<body>
+  <div id="section1" class="first">
+    <div class="navbar">
+      <div id="logo1">
+        <img src="photo/logo1.png" height="45" width="50" alt="mbi logo">
+      </div>
+      <div class="nav1">
+
+        <a href="landingpage.html" title="home" style="color: #407BFF;">Home</a>
+        <a href="#section2" title="Language">Language</a>
+        <a href="mailto:besso" title="Activities">Activities</a>
+        <a href="#blog1" title="Blog" onclick="scrollToElement()">Blog</a>
+        <a href="mailto:besso" title="Reviews">Reviews</a>
+        <a href="contactus.html" title="Contactus">Contact us</a>
+
+      </div>
+      <div id="eli">
+
+
+        <a href="" class="button link">Log in</a>
+
+        <a href="sign.html" class="button link">sign in</a>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="theintro">
+    <div class="the_text">
+      <h1 id="text">
+        <pre id="text"> Elevate your <br> language skills <br> with MBI </pre>
+      </h1>
+      <section id="selection">
+        <div>
+          <p id="engnat"> Native Language </p>
+          <img id="usaimg" src="photo/usa.png" height="25" width="45" alt="">
+          <p id="engnat1"> English </p>
+        </div>
+        <div id="vl"></div>
+        <div>
+          <p id="frnnat"> Will Study </p>
+          <img id="frnimg" src="photo/frn.png" height="25" width="45" alt="">
+          <p id="frnnat1"> Franch </p>
+          <button id="bot3"> Go! </button>
+        </div>
+      </section>
+    </div>
+    <div class="image">
+      <img id="intimg" src="photo/phooo.jpg" height="500" width="700" alt="">
+
+    </div>
+
+
+  </div>
+  <div id="section0">
+    <div class="stat">
+      <div></div>
+      <h3>Joined our website</h3>
+    </div>
+    <div class="stat">
+      <div></div>
+      <h3>Professional <br> teachers</h3>
+    </div>
+    <div class="stat">
+      <div></div>
+      <h3>certified students</h3>
+    </div>
+  </div>
+  <div id="section2" class="Cources">
+
+    <h2>Available Langues !</h2>
+
+    <section id="anim" class="swiper mySwiper">
+
+      <div class="swiper mySwiperr">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="card__image">
+              <img src="photo/english-teacher-pana 1.png" alt="card image">
+            </div>
+
+            <div class="card__content">
+              <span class="card__title">learn English Easier</span>
+
+              <button class="card__btn">Learn More </button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card__image">
+              <img src="photo/enslish.png" alt="card image">
+            </div>
+
+            <div class="card__content">
+              <span class="card__title">learn English Easier</span>
+
+              <button class="card__btn"><a href="">View More</a></button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card__image">
+              <img src="photo/enslish.png" alt="card image">
+            </div>
+
+            <div class="card__content">
+              <span class="card__title">learn English Easier</span>
+
+              <button class="card__btn">View More</button>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card__image">
+              <img src="photo/enslish.png" alt="card image">
+            </div>
+
+            <div class="card__content">
+              <span class="card__title">learn English Easier</span>
+
+              <button class="card__btn">View More</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Swiper JS -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+      <!-- Initialize Swiper -->
+      <script>
+        var swiper = new Swiper(".mySwiperr", {
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+          },
+        });
+      </script>
+    </section>
+
+
+
+
+
+  </div>
+  <script>
+    // Smooth scrolling function
+    function scrollToElement(element) {
+      document.querySelector(element).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    // Add event listeners to navigation links
+    document.querySelectorAll('.home,  .blogg, .Reviews, .Contactus').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default anchor behavior
+        const targetId = this.getAttribute('href'); // Get target section id from href attribute
+        scrollToElement(targetId); // Scroll to target section smoothly
+      });
+    });
+  </script> <br><br>
+  <div class="theintro">
+    <div class="the_textt">
+      <h1 id="text">
+        <pre id="text"> MBI at your  <br> fingertips </pre>
+
+      </h1>
+      <h4>Everything you need in one app , Download <br>now !</h4>
+      <br><br>
+      <div id="appbutt">
+        <button class="appbutton">Google Play</button>
+        <button class="appbutton"><i><i class="fa-brands fa-apple" style="color: #ffffff;"></i></i>App store</button>
+      </div>
+    </div>
+    <div class="image">
+      <img id="intimg" src="photo/png_mobile_mockup_iphone-removebg-preview 1.png" height="500" width="500" alt="">
+
+    </div>
+
+
+  </div>
+
+  <div id="blog1">
+    <div id="section4" class="blogg">
+
+
+
+      <section id="anim" class="swiper mySwiperr">
+        <button class="card__btn" style="margin-left: 2%;background-color: #1E1B6D;"><a href="Blog.html">for more Blogs -></a></button>
+        <div id="swiper-wrapperr" class="swiper-wrapper">
+
+          <div class="cardd swiper-slide">
+            <div class="image-overlay"><img src="photo/mb.png" alt="h"></div>
+            
+          </div><div class="cardd swiper-slide">
+            <div class="image-overlay"><img src="photo/mb.png" alt="h"></div>
+
+          </div>
+          <div class="cardd swiper-slide">
+            <div class="image-overlay"><img src="photo/mb.png" alt="h"></div>
+
+          </div>
+          <div class="cardd swiper-slide">
+            <div class="image-overlay"><img src="photo/mb.png" alt="h"></div>
+
+          </div>
+          <div class="cardd swiper-slide">
+            <div class="image-overlay"><img src="photo/mb.png" alt="h"></div>
+
+          </div>
+          
+          
+      
+          
+        </div>
+       
+      </section>
+
+
+      <!-- Swiper JS -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+      <!-- Initialize Swiper -->
+      <script>
+        var swiper = new Swiper(".mySwiperr", {
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 300,
+            modifier: 1,
+            slideShadows: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+          },
+        });
+      </script>
+
+
+
+    </div>
+
+
+
+  </div>
+  <section id="section5">
+
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12881.367065282877!2d5.4002496903395585!3d36.1825692031495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f3156613c4f3d5%3A0x733f087a6f73b83f!2sMBI%20Algeria%20Campus%202%20Boumarshi!5e0!3m2!1sfr!2sdz!4v1712815483908!5m2!1sfr!2sdz"
+        width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+  </section>
+  <section id="section6">
+    <div class="revnam">
+      <div>
+        <h1>Reviews </h1>
+        <p style="color: #1E1B6D;">reviews and ratings are from people <br> who already finished the course</p>
+      </div>
+      <div>
+
+        <div class="rating-box">
+          <header>Average Rating</header>
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <script> // Select all elements with the "i" tag and store them in a NodeList called "stars"
+          const stars = document.querySelectorAll(".stars i");
+
+          // Loop through the "stars" NodeList
+          stars.forEach((star, index1) => {
+            // Add an event listener that runs a function when the "click" event is triggered
+            star.addEventListener("click", () => {
+              // Loop through the "stars" NodeList Again
+              stars.forEach((star, index2) => {
+                // Add the "active" class to the clicked star and any stars with a lower index
+                // and remove the "active" class from any stars with a higher index
+                index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+              });
+            });
+          });</script>
+
+      </div>
+    </div>
+    <div class="revnam1">
+      <div class="review">
+        <div></div>
+      </div>
+      <div><button>View More</button></div>
+    </div>
+
+  </section>
+
+  <div id="reffrence">
+
+    <img src="photo/logo111.png" width="300" height="150" alt="">
+    <div class="grid-container">
+      <div class="grid-item">
+        <h2>Contact us</h2>
+
+        <p class="txt"> Coop. Echourouk N° : Cité Bérarma Sétif, 19 000.</p><br>
+
+        <p class="txt">036 44 65 41 / 036 44 66 22</p><br>
+
+        <a href="mailto:bessouma@gmail.com" id="mail" class="txt">contact@mbialgeriacampus.com</a>
+      </div>
+      <div class="grid-item">
+        <h2 id="h22">Services </h2>
+        <a class="home" href="#section1" title="home">Home</a>
+        <a class="Language" href="#section2" title="Language">Language</a>
+        <a class="Bloc" href="mailto:besso" title="Blog">Blog</a>
+        <a class="Reviews" href="mailto:besso" title="Reviews">Reviews</a>
+        <a class="Contactus" href="animation.html" title="Contactus">Contact us</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+</body>
+
+</html>

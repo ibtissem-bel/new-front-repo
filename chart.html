@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Column Chart</title>
+    <style>
+        .chart-container {
+            width: 600px;
+            height: 400px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .column {
+            position: absolute;
+            bottom: 0;
+            margin-left: 20px;
+            width: 50px;
+            border-color: rgb(255, 1, 1);
+            background-color: steelblue;
+        }
+        .month-label {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="chartContainer" class="chart-container">
+        <!-- Chart will be inserted here -->
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Data list
+            const data = [10, 0, 20, 0, 0, 15, 0, 30, 0, 25];
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"]; // Month labels
+            const container = document.getElementById('chartContainer');
+            const maxValue = Math.max(...data);
+            const spaceBetweenColumns = 20; // Space between columns
+
+            // Draw chart function
+            function drawChart(data) {
+                data.forEach((value, index) => {
+                    const column = document.createElement('div');
+                    column.classList.add('column');
+                    column.style.height = (value / maxValue) * 100 + '%';
+                    column.style.left = (index * (20 + spaceBetweenColumns)) + 'px'; // Adjust spacing
+                    container.appendChild(column);
+
+                    // Create month label
+                    const monthLabel = document.createElement('div');
+                    monthLabel.classList.add('month-label');
+                    monthLabel.textContent = months[index]; // Set month label text
+                    monthLabel.style.left = (index * (20 + spaceBetweenColumns)) + 'px'; // Position under column
+                    container.appendChild(monthLabel);
+                });
+            }
+
+            // Call drawChart with data
+            drawChart(data);
+        });
+    </script>
+</body>
+
+</html>
