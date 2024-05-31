@@ -205,11 +205,16 @@
 
 						<div id="languagesList">
 							<div class="langdiv">
-								<div><img src="frn.png" id="langimg" width="40" height="25" alt=""></div>
-								<span id="langname"><a id="co" href="">hey </a> </span>
+								<div><img src="photo/frn.png" id="langimg" width="40" height="25" alt=""></div>
+								<span id="langname"><a id="co" href="">English</a> </span>
 								<div><button class="delete-btn">X</button></div>
 							</div>
-							
+							<div class="langdiv">
+								<div><img src="frn.png" id="langimg" width="40" height="25" alt=""></div>
+								<span id="langname"><a id="co" href="">french </a> </span>
+								<div><button class="delete-btn">X</button></div>
+							</div>
+
 						</div>
 
 
@@ -221,11 +226,11 @@
 						<button class="open-modal" data-section="activities">Add Activity</button>
 						<div id="ActivityList">
 							<div class="langdiv">
-								<div><img src="frn.png" id="langimg" width="40" height="25" alt=""></div>
-								<span id="langname"><a id="co" href="">hey </a> </span>
+								<div><img src="photo/logo1.png" id="langimg" width="40" height="25" alt=""></div>
+								<span id="activityname">trip</span>
 								<div><button class="delete-btn">X</button></div>
 							</div>
-							
+
 						</div>
 					</section>
 
@@ -253,8 +258,18 @@
 							<!-- Modal content -->
 							<form id="activityForm">
 								<!-- Your form fields for activity go here -->
+								<label for="activityImage">Activity Image:</label>
+								<input type="file" id="activityImage" name="activityImage" required>
 								<label for="activityName">Activity Name:</label>
 								<input type="text" id="activityName" name="activityName" required>
+								<label for="activityDescription">Activity Description:</label>
+								<textarea name="ActivityDescription" id="ActivityDescription" hight="auto"
+									width="auto"></textarea>
+
+								<label for="activityLocation">Activity Location:</label>
+								<input type="text" id="activityLocation" name="activityLocation" required>
+								<label for="activityDate">Activity Date:</label>
+								<input type="date" id="activityDate" name="activityDate" required>
 								<br><br>
 								<button type="submit">Submit</button>
 							</form>
@@ -424,29 +439,13 @@
 					});
 				}
 
-				function generateLanguageList() {
-					const languagesList = document.getElementById('languagesList');
-					const uniqueLanguages = [...new Set(data.map(course => course.name))];
-					uniqueLanguages.forEach(name => {
-						const listItem = document.createElement('div'); // Create a <div> for each language
-						const link = document.createElement('a');
-						const attributes = data.filter(course => course.name === name);
-						link.href = `userfile.html?name=${name}`; // Set the href attribute with the language name
-						link.textContent = name;
-						link.id = 'co'; // Add an id to the link for reference if needed
-						listItem.appendChild(link);
-						languagesList.appendChild(listItem);
-					});
-				}
 
-				generateLanguageList();
 
 			</script>
 
 		</main>
 
 	</section>
-
 
 
 
